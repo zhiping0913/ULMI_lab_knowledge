@@ -1,0 +1,13 @@
+# Local/editor/cache junk
+.DS_Store
+__pycache__/
+*.pyc
+*.pyo
+*.tmp
+*.swp
+*.swo
+
+# Avoid accidental local runtime/log spillover
+logs/
+tmp/
+*.log
