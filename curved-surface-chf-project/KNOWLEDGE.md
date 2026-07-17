@@ -4,7 +4,7 @@ description: >
   Project memory for Zhiping's Curved_surface ultrathin-foil coherent-harmonic-focusing work:
   goals, factorization, run/workflow registries, daily logs, figures, and open questions.
 version: 0.1.0
-last_updated: 2026-07-13
+last_updated: 2026-07-17
 ---
 
 # Curved_surface / ultrathin-foil CHF project memory
@@ -29,6 +29,7 @@ Supporting files:
 - `propagate_2d_time_scan_submission_2026-07-08.md` — submission record for 32 Slurm fast-propagation/focus-scan jobs over renamed `a0=20/2D/K=...,ND_a0=...,L=...` cases, both reflection and transmission.
 - `order_focus_scan_2026-07-13.md` — order-resolved coarse focus scan (`center±100T0`, `10T0` step, 21 points) using updated `propagate_2D_time_scan.py` k-band outputs; includes script patch/driver, job IDs `3498134–3498166`, validation, argmax summary TSV path, and reflection/transmission strongest per band.
 - `order_focus_plots_2026-07-13.md` — follow-up order-resolved reflection plots of `E_max/Ec` and `x_Emax/λ0` versus curvature `K` for `ND/a0=0.30,0.50,1.00` and bands `band1`, `band2`, `band3`; includes output PNG/PDF/notebook/CSV paths and Telegram attachment IDs.
+- `order_focus_paraxial_overlay_2026-07-17.md` — added a paraxial Gaussian 1st-order overlay to the `a0=20` order-focus `x_Emax(K)` plot using `K_eff=K/cos45°` and reflected wavefront radius `R_i=1/(2K_eff)` for `w_i=12.5λ0`; records modified notebook/script, output paths, and formula caveats.
 - `tradeoff_objective_2026-07-13.md` — Zhiping's clarified design target: do not maximize near-target field alone; select curvature from a Pareto tradeoff between strong `E_peak`, focus distance/accessibility, and width/divergence. Includes quick candidates (`K=-0.005` for strong-but-not-too-close, `K=-0.002` for farther focus) from the current order-focus summary.
 - `temporal_compression_estimate_2026-07-13.md` — 1D `reflection_Sx.nc` temporal-compression estimates: ultrathin `a0=20/1D/45/ND_a0=0.30` has `Sx_peak/(a0²Sc_M)≈7.79`, FWHM≈`0.013 T0_M`, `Sx_peak×FWHM`≈`0.102`, and actual `x_peak±0.5λ0_M` integral≈`0.612` of one-cycle incident fluence; thick `45,thick/L=0.10` has lower peak≈`3.43`, broader FWHM≈`0.163 T0_M`, and one-cycle integral≈`0.942`; records script/output paths and the `a0=20` vs `spectrum_1D.py` hardcoded `a0=200` caveat.
 - `2d_band1_spatial_fluence_estimate_2026-07-13.md` — 2D `K=-0.005,ND_a0=0.30,L=0.00` order-focus `band1` focal estimate: at the `E_peak` row (`E≈34.68 Ec`, `x≈68.32λ0`, `width_x≈2.62λ0`, `width_y≈3.65λ0`), rectangular `E² width_x width_y / [a0² × 1λ0 × 2w0]≈1.15`; records Zhiping's correction that `width_y` is full width while `laser_w0=12.5λ0` is half-width.
