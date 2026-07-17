@@ -300,3 +300,13 @@ Key result: nearest real-field peak is only `12–20` cells after the envelope p
 Detailed note: `mikhailova2012_cse_carrier_phase_2026-07-17.md`.
 
 Zhiping asked in Telegram `main:6420513923:391` how to reconcile the PIC/EPOCH HH wavepacket carrier phase near `-π/2` at the envelope center with Mikhailova 2012 supplement Fig. S5, where the simplified CSE model field peaks at the pulse center (phase 0). Reply sent in `main:6420513923:393`. Key conclusion: CSE conditions fix emission time / envelope center / phase slope, not a universal carrier-phase intercept. Fig. S5's phase 0 follows from the simplified `E(t)=-Ne a_y(t')U(t')/(c^2R)` model with Gaussian/even `a_y` and positive/even `U`. In the same supplement, Fig. S2(d) PIC reflected field appears near a zero crossing at the intensity/envelope marker, and the text states at `t3` the transverse current `J_y=0` while `J_z` is maximal. Thus our PIC `-π/2` is plausibly the self-consistent reflected-field HH carrier CEP at envelope center, while the simplified analytic model captures envelope timing/intensity but not the spectral phase intercept.
+
+## Follow-up: paused CEP/HH phase-locking research thread (2026-07-17)
+
+Detailed synthesis note: `cep_hh_phase_locking_paused_research_2026-07-17.md`.
+
+Trigger: Zhiping Telegram `main:6420513923:399` placed `/scratch/gpfs/MIKHAILOVA/zl8336/study_phy_cep/harmonic_superposition.ipynb` on `tiger-vis` for toy visualization of harmonic superposition under different per-order phases, then asked to temporarily set aside the detailed attosecond HH wavepacket carrier-phase research while preserving all current work.
+
+Central preserved question: attosecond HH wavepackets appear phase-locked, but what absolute phase is locked? Why do broad PIC regimes — including the present ultra-thin `ND/a0=0.3`, `a0=20`, `θ=45°` case and Zhiping's earlier thick-target `/scratch/gpfs/MIKHAILOVA/zl8336/45thick` case (`a0=3`, `N=300`, `L=0.05`) — show sin-like attosecond pulses rather than the cos-like waveform suggested by the simplified CSE/Liénard-Wiechert toy model?
+
+Compact resume point: robust evidence so far is small residual / near-linear spectral phase of strong harmonics at the HH envelope/group-delay center. The common EPOCH intercept near `-π/2` is a carrier CEP of the reconstructed HH wavepacket under the current analytic-field convention, not yet a universal mechanism constant. Real-field-peak sampling mainly adds the expected translation slope `Δφ_n=n k0 Δx`, so envelope-peak sampling remains the natural phase-locking reference. Future resolution likely requires electron trajectory/source diagnostics (`J_y`, `dJ_y/dt`, bunch acceleration, gamma spike, boundary response, propagation/filtering phase), not only far-field spectra.
