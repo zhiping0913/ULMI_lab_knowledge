@@ -150,3 +150,11 @@ Zhiping clarified that my current role is physics and numerical-computation work
 - Descendant avatar rules should carry the ULMI Lab scientific iron rules and the no-new-agents constraint.
 - Keep project facts in knowledge, reusable procedures in shared skills under `/home/zhiping/skills`, and active plans in pad.
 - Before major computational runs, verify HPC host access and quota, then use Tiger/Della/Adroit according to the resource strategy above.
+
+## Knowledge backup repository
+
+- 2026-07-17: Zhiping created GitHub repository `https://github.com/zhiping0913/ULMI_lab_knowledge` and asked `main` to push `/home/zhiping/ULMI_lab/.lingtai/main/knowledge` for backup.
+- Before publishing, `main` performed a lightweight safety scan: 64 files, total ~562 kB, no files >5 MB, no private-key/GitHub-token/OpenAI-key pattern hits. Generic secret-keyword hits were policy text or sanitized non-secret session notes.
+- Initialized `/home/zhiping/ULMI_lab/.lingtai/main/knowledge` as a git repository on branch `main`, added `.gitignore`, committed `Back up LingTai knowledge entries`, and pushed to `origin/main`.
+- Initial pushed commit: `9aa3e6d`.
+- Future durable knowledge changes can be backed up with ordinary `git add/commit/push` from the knowledge directory, after the same secret hygiene check if new entries could contain sensitive material.
