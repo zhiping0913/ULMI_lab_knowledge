@@ -38,3 +38,4 @@ Covers LingTai 0.16.3 update, CEP harmonic phase-locking analysis (EPOCH vs JAX)
 
 - 2026-07-17 molt-19 a0-50-focus-retries-k0-pending — Completed the a0=50 focus-scan retries/summary artifacts, kept K=0 reflection pm300 jobs pending with a future reminder, and molted for cache-budget hygiene. Child: `2026-07-17-molt-19-a0-50-focus-retries-k0-pending/KNOWLEDGE.md`
 - 2026-07-17 molt-20 phase-reference-knowledge-backup — Refined CEP HH phase interpretation, ran/reverted real-peak sanity check, reconciled Mikhailova CSE phase with PIC, pushed knowledge to GitHub, and kept K=0 jobs pending. Child: `2026-07-17-molt-20-phase-reference-knowledge-backup/KNOWLEDGE.md`
+- 2026-07-17 — molt 21 slurm focus scans: CEP/HH pause note, Curved_surface paraxial overlay, a0=20 focus-at-time OOM retries, and a0=50 fine focus scan monitoring. See `2026-07-17-molt-21-slurm-focus-scans/KNOWLEDGE.md`.
