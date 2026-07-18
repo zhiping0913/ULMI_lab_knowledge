@@ -122,3 +122,5 @@ Never store credential material. Do not treat simulation output as sufficient wi
 ## a0=50/2D ND_a0=0.30 clip + focus scan (2026-07-17)
 
 See supporting note `a0_50_clip_focus_scan_2026-07-17.md` for the completed clip jobs/retries, row6 one-node-two-task fix, focus-scan failure/retry recovery, and final combined summary artifacts/metrics for all six K values (center 50T0, half-width 100T0, step 5T0).
+
+See supporting note `a0_50_reflection_fine_scan_2026-07-18.md` for the follow-up reflection-only fine scan using each K's coarse on-axis peak as center (`±20T0`, `step=1T0`, 41 points), including job/retry record, validation (`6/6` output dirs OK), summary TSV/PNG/PDF/notebook paths, and the trend that stronger negative curvature focuses closer and higher.
