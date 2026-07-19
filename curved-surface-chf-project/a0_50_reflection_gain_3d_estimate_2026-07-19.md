@@ -191,6 +191,24 @@ Completion report sent to Zhiping in Telegram `main:6420513923:463`, followed by
 - band stats TSV;
 - editable notebook.
 
+## Cross-a0 normalized-efficiency interpretation
+
+After the report, Zhiping observed in Telegram `main:6420513923:472` that the a0=20 harmonic focusing gain `A2D/A1D` (order-10-ish at the strongest harmonics) is larger than the a0=50 gain (few-fold), so the estimated 3D a0=20 field can be comparable to the a0=50 result even though the absolute peak is lower. I agreed in `main:6420513923:473` and suggested the following quantitative factorization:
+
+```text
+a0=20, ND/a0=0.30, best K≈-0.005:
+E2D≈156.9 Ec, G_locked≈4.43, sqrt(G)≈2.10
+E3D_cons≈330 Ec, E3D/a0≈16.5
+
+a0=50, ND/a0=0.30, best K≈-0.012:
+E2D≈329.1 Ec, G_locked≈3.19, sqrt(G)≈1.79
+E3D_cons≈588 Ec, E3D/a0≈11.8
+```
+
+Thus the a0=50 absolute conservative estimate is still higher by `~588/330≈1.8`, but the normalized field `E3D/a0` is higher for a0=20. In intensity-like normalized units `(E3D/a0)^2`, a0=20 is about `~272` while a0=50 is about `~138`, roughly a factor of two higher normalized coherent-focusing efficiency.
+
+Physical interpretation: a0=50 provides a larger local source field, but stronger radiation pressure / surface deformation / transverse electron motion can degrade harmonic wavefront quality, divergence, and phase coherence, reducing `G_locked` or the Strehl-like focusing factor. a0=20 near `ND/a0≈0.30` appears closer to a clean coherent harmonic source plus focusable wavefront window. A useful future figure would compare `E2D/a0`, `sqrt(G_locked)`, and `E3D/a0` or `(E3D/a0)^2` versus `a0` and `K`.
+
 ## Follow-up / caveats
 
 - This is an estimate, not a 3D PIC result. Keep the statement as `E3D ≈ E2D * sqrt(G_locked)` conservative extrapolation with the ideal `E2D * G_locked` only as an upper bound.
