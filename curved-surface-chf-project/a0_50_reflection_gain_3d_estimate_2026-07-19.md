@@ -209,6 +209,39 @@ Thus the a0=50 absolute conservative estimate is still higher by `~588/330≈1.8
 
 Physical interpretation: a0=50 provides a larger local source field, but stronger radiation pressure / surface deformation / transverse electron motion can degrade harmonic wavefront quality, divergence, and phase coherence, reducing `G_locked` or the Strehl-like focusing factor. a0=20 near `ND/a0≈0.30` appears closer to a clean coherent harmonic source plus focusable wavefront window. A useful future figure would compare `E2D/a0`, `sqrt(G_locked)`, and `E3D/a0` or `(E3D/a0)^2` versus `a0` and `K`.
 
+## Aligned real-Bz comparison follow-up
+
+Zhiping then replied to the earlier a0=20 aligned-Bz figure (`main:6420513923:474`) and asked for the analogous a0=50 plot after aligning 1D and 2D cases by the HH-envelope peak. I generated:
+
+Remote output directory:
+`/scratch/gpfs/MIKHAILOVA/zl8336/Curved_surface/utility/plot/a0_50_focus_at_y_aligned_Bz_20260719/`
+
+Local artifacts:
+`artifacts/a0_50_focus_at_y_aligned_Bz_20260719/`
+
+Files:
+
+- `a0_50_ND_a0_0p30_reflection_focus_at_y_aligned_Bz.png/.pdf`
+- `a0_50_ND_a0_0p30_reflection_focus_at_y_aligned_Bz_summary.tsv`
+- `plot_a0_50_focus_at_y_aligned_Bz.ipynb`
+- `plot_a0_50_focus_at_y_aligned_Bz.py`
+
+Plot content: 1D reference plus all six 2D cases `K=+0.000,-0.002,-0.005,-0.008,-0.010,-0.012`, real `Bz` only, aligned so each case's `spectrum_1D.py` HH-envelope peak is at `Δx=0`, with `±4` wavelength-unit window. 1D uses moving-frame units `λ_M=λ0/cos45°` and `B_{c,M}=B_c cos45°`; 2D focus_at_y uses `λ0,B_c`.
+
+Alignment metadata:
+
+```text
+1D        x_peak=7.7129 λ_M   duration=0.0118 T0
+K=-0.012  x_peak=17.5425 λ0  duration=0.0549 T0
+K=-0.010  x_peak=19.5425 λ0  duration=0.0571 T0
+K=-0.008  x_peak=22.5475 λ0  duration=0.0548 T0
+K=-0.005  x_peak=26.5525 λ0  duration=0.0751 T0
+K=-0.002  x_peak=35.5525 λ0  duration=0.0771 T0
+K=+0.000  x_peak=35.5525 λ0  duration=0.0449 T0
+```
+
+Telegram report and attachments: `main:6420513923:476–480`.
+
 ## Follow-up / caveats
 
 - This is an estimate, not a 3D PIC result. Keep the statement as `E3D ≈ E2D * sqrt(G_locked)` conservative extrapolation with the ideal `E2D * G_locked` only as an upper bound.
