@@ -155,3 +155,34 @@ Self-reminder `20260715T104620-5f29` fired and was handled. Tiger `squeue`/`sacc
 ```
 
 Logdir still contained only `manifest.tsv`; no nonempty `.err`. No Telegram report was sent for this unchanged pending state; a fifth self-reminder was scheduled for 4 hours later.
+
+## 2026-07-19 resumed monitoring and row1 retry
+
+After many days pending, the jobs were still queued through 2026-07-19 morning. At 15:21 EDT, `3512584` (`ord_1_reflection`, `ND/a0=0.15`) was running on `tiger-i05g12`, elapsed `01:53`, `ReqMem=900G`; `.err` was empty and `.out` showed progress around `t_idx=13`, `t=+47T0`, `|centerline|max≈32.9 Ec`. Jobs `3512585` was pending `(Resources)`, and `3512586–3512587` pending `(Priority)`. At 17:22 EDT, `3512584` was still running, elapsed `03:54`, with `.err` empty and progress around `t_idx=28`, `t=+197T0`, `|centerline|max≈34.4 Ec`.
+
+At 19:23 EDT, `3512584` had failed:
+
+```text
+State: FAILED
+Elapsed: 03:55:21
+ExitCode: 134:0
+MaxRSS: 801173292K
+ReqMem: 900G
+Start: 2026-07-19T13:28:21
+End:   2026-07-19T17:23:42
+```
+
+The error log showed a JAX/XLA CPU all-reduce rendezvous termination timeout (`Expected 3 threads ... only 2 arrived`) followed by abort/core dump. This was **not** a Slurm OOM: MaxRSS was ~801 GB under a 900G request. The out log last showed progress near `t_idx=28`, `t=+197T0`; no final expected files (`reflection_peak_vs_x.nc`, env-total/band1-4 peak_vs_x NetCDFs, `reflection_beam_width_strength.h5/.png`) were present for row1 or the other still-pending rows.
+
+There were no saved per-row Slurm scripts in the original logdir, only `manifest.tsv`. I generated a single-row retry Slurm script from the manifest and `propagate_2D_time_scan.py` env interface:
+
+- local copy: `artifacts/k0_order_scan_retry_20260719/ord_1_reflection_retry1.slurm`
+- remote copy: `/scratch/gpfs/MIKHAILOVA/zl8336/Curved_surface/utility/propagate_2D_time_scan_logs/a0_20_2D_order_focus_pm300_10T_K0_reflection_retry1_20260719_1925/ord_1_reflection_retry1.slurm`
+- working_dir: `/scratch/gpfs/MIKHAILOVA/zl8336/Curved_surface/a0=20/2D/K=+0.000,ND_a0=0.15,L=0.00`
+- output_dir: original row1 output dir `.../order_focus_pm300_10T_K0_reflection`
+- scan: `side=reflection`, center `217T0`, half-width `300T0`, `61` points
+- resources: `900G/12h`, `1 node`, `1 task`, `6 cpus`
+
+Before submitting the retry I ran `checkquota`; MIKHAILOVA scratch was `9.5/15 TiB`, free ~`5.5 TiB`, above the 2 TiB guard. Retry job submitted as `3548700` and was immediately `PENDING (Priority)`. At that time `3512585` remained `PENDING (Resources)`, `3512586–3512587` remained `PENDING (Priority)`.
+
+If `3548700` fails with the same JAX/XLA rendezvous abort, stop and report to Zhiping before further retries; likely next steps would involve changing JAX CPU device/threading settings or chunking the time scan rather than resubmitting unchanged.
